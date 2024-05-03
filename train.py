@@ -32,11 +32,11 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # Load and preprocess data
-    train_data = MidiDataset('path/to/train/data.json')
+    train_data = MidiDataset('data/prompts.json')
     train_loader = DataLoader(train_data, batch_size=16, shuffle=True)
 
     # Load BERT tokenizer and model
-    bert_config = 'path/to/bert/config.json'
+    bert_config = 'config.json'
     tokenizer = BertTokenizer.from_pretrained(bert_config)
     model = MidiSentimentModel(bert_config).to(device)
 
